@@ -1,0 +1,15 @@
+{
+  "name": "ng-stomp-sockjs-app",
+  "version": "1.0.0",
+  "description": "angular stomp sockjs app",
+  "homepage": "http://komushi.github.io/ng-stomp-sockjs-app/",
+  "license": "ISC",
+  "private": true,
+  "dependencies": {
+    "angular": "1.5.6",
+    "angular-route": "1.5.6",
+    "bootstrap": "3.3.*",
+    "angular-ui-grid": "3.1.1",
+    "ng-stomp": "upgrade-sockjs"
+  }
+}

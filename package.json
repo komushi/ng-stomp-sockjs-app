@@ -1,0 +1,21 @@
+{
+  "name": "ng-stomp-sockjs-app",
+  "private": true,
+  "version": "1.0.0",
+  "description": "angular stomp sockjs app",
+  "repository": "http://komushi.github.io/ng-stomp-sockjs-app/",
+  "scripts": {
+    "start": "node ./server/server.js"
+  },
+  "dependencies": {
+    "q":"1.1.x",
+    "express": "~4.0.0",
+    "body-parser":"1.10.x"
+  },
+  "scripts": {
+    "start": "node ./server/nodeapp.js"
+  },
+  "engines" : { "node" : ">=0.10.3 <0.12" },
+  "author": "Lei Xu",
+  "license": "ISC"
+}

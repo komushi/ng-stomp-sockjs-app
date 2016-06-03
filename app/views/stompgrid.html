@@ -1,0 +1,50 @@
+<div class="row">
+  <div class="col-md-3">
+    <div class="panel panel-default">
+      <div class="panel-body">
+   	    <div class="form-group">
+          <label for="url">Endpoint URL:</label>
+          <input type="text" class="form-control" id="url" placeholder="http://localhost:15674/stomp" ng-model="model.url">
+          <label for="usr">User:</label>
+          <input type="text" class="form-control" id="usr" ng-model="model.usr">
+          <label for="pwd">Password:</label>
+          <input type="password" class="form-control" id="pwd" ng-model="model.pwd">
+		    </div>
+        <div class="form-group">
+          <button ng-click="connect()">Connect</button>
+        </div>
+      </div>      
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="form-group">
+          <label for="queue">Queue</label>
+          <input type="text" class="form-control" id="queue" placeholder='/topic/broadcast'ng-model="model.queue">
+        </div>
+        <div class="form-group">
+          <button ng-click="subscribe()">Subscribe</button>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="form-group">
+          <label for="queue">Destination</label>
+          <input type="text" class="form-control" id="queue" placeholder='/topic/dest' ng-model="model.dest">
+          <label for="body">Body</label>
+          <textarea class="form-control" rows="2" id="payload" placeholder='{"key":"value"}' ng-model="model.payload"></textarea>
+        </div>
+        <div class="form-group">
+          <button ng-click="send()">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-9">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        
+      </div>
+    </div>
+  </div>
+</div>
