@@ -11,6 +11,6 @@
     "bootstrap": "3.3.*",
     "ng-stomp": "upgrade-sockjs",
     "ag-grid": "4.2.*",
-    "smart-table": "2.1.*"
+    "angular-smart-table": "2.1.*"
   }
 }

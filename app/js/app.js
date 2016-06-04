@@ -3,6 +3,7 @@ agGrid.initialiseAgGridWithAngular1(angular);
 var app =  angular.module('ngStompSockjsApp', [
 	'ngRoute',
 	'agGrid',
+	'smart-table',
 	'ngStomp'
 ]);
 

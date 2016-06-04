@@ -4,28 +4,21 @@
   <div class="col-md-9">
     <div class="panel panel-default">
       <div class="panel-body">
-        <div class="form-group">
-          <button ng-click="">Connect</button>
-        </div>
    	    <div class="table-container">
-
-
-<table st-table="rowCollection" class="table table-striped">
-  <thead>
-  <tr>
-    <th>hour</th>
-    <th>sales</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr ng-repeat="row in rowCollection">
-    <td>{{row.hour}}</td>
-    <td>{{row.sales}}</td>
-  </tr>
-  </tbody>
-</table>
-
-
+          <table st-table="displayedCollection" st-safe-src="rowCollection" class="table table-striped">
+            <thead>
+            <tr>
+              <th>hour</th>
+              <th>sales</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="row in displayedCollection">
+              <td>{{row.hour}}</td>
+              <td>{{row.sales}}</td>
+            </tr>
+            </tbody>
+          </table>
         </div>
       </div>      
     </div>
