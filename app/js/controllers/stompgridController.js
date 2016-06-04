@@ -38,18 +38,19 @@ app.controller('stompgridController', ['$scope', '$interval', '$stomp', function
         
     };
 
-
     $scope.subscribe = function () {
-        $stomp.subscribe($scope.model.queue, updateGrid);
+        $stomp.subscribe($scope.model.queue).then(null,null,updateGrid);
     };
+
 
     $scope.send = function () {
         $stomp.send($scope.model.dest, JSON.parse($scope.model.payload), JSON.parse($scope.model.headers));
     };
 
-    var updateGrid = function (payload, headers, res) {
-        console.log('payload');
-        console.log(payload);
+    var updateGrid = function (res) {
+        console.log('res');
+        console.log(res);
+        $scope.model.rowCollection.push(JSON.parse(res.body));
     };
 
     var initialize = function () {
@@ -64,9 +65,9 @@ app.controller('stompgridController', ['$scope', '$interval', '$stomp', function
         $scope.model.payload = '{"key":"value"}';
         $scope.model.headers = '{}';
 
-        $stomp.setDebug(function (args) {
-            // $log.debug(args);
-        });
+        $scope.model.rowCollection = [];
+
+
     };
 
     initialize();
