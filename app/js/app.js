@@ -1,6 +1,8 @@
+agGrid.initialiseAgGridWithAngular1(angular);
+
 var app =  angular.module('ngStompSockjsApp', [
 	'ngRoute',
-	// 'ui.grid',
+	'agGrid',
 	'ngStomp'
 ]);
 
@@ -14,7 +16,8 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
 
 	$routeProvider.
 		when("/", {redirectTo: '/stompgrid'}).
-		// when("/gridpage", {templateUrl: "views/gridpage.html", controller: "gridpageController"}).
+		when("/gridpage", {templateUrl: "views/gridpage.html", controller: "gridpageController"}).
+		when("/smarttbl", {templateUrl: "views/smarttbl.html", controller: "smarttblController"}).
 		when("/stompgrid", {templateUrl: "views/stompgrid.html", controller: "stompgridController"});
 
 }]);
