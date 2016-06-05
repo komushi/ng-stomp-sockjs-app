@@ -23,6 +23,7 @@
         </div>
         <div class="form-group">
           <button ng-click="subscribe()">Subscribe</button>
+          <button ng-click="unsubscribe()">Unsubscribe</button>
         </div>
       </div>
     </div>
@@ -48,12 +49,14 @@
             <thead>
             <tr>
               <th>name</th>
+              <th>type</th>
               <th>sales</th>
             </tr>
             </thead>
             <tbody>
             <tr ng-repeat="row in displayedCollection">
               <td>{{row.name}}</td>
+              <td>{{row.type}}</td>
               <td>{{row.sales}}</td>
             </tr>
             </tbody>
