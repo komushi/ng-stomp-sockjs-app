@@ -18,8 +18,8 @@
     <div class="panel panel-default">
       <div class="panel-body">
         <div class="form-group">
-          <label for="queue">Queue</label>
-          <input type="text" class="form-control" id="queue" placeholder='/topic/broadcast'ng-model="model.queue">
+          <label for="queue">Sub Dest</label>
+          <input type="text" class="form-control" id="subdest" placeholder='/topic/subdest' ng-model="model.subdest">
         </div>
         <div class="form-group">
           <button ng-click="subscribe()">Subscribe</button>
@@ -30,8 +30,8 @@
     <div class="panel panel-default">
       <div class="panel-body">
         <div class="form-group">
-          <label for="queue">Destination</label>
-          <input type="text" class="form-control" id="queue" placeholder='/topic/dest' ng-model="model.dest">
+          <label for="queue">Pub Dest</label>
+          <input type="text" class="form-control" id="pubdest" placeholder='/topic/pubdest' ng-model="model.pubdest">
           <label for="body">Body</label>
           <textarea class="form-control" rows="2" id="payload" placeholder='{"key":"value"}' ng-model="model.payload"></textarea>
         </div>

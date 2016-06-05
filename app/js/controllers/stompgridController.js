@@ -28,20 +28,19 @@ app.controller('stompgridController', ['$scope', '$stomp', function($scope, $sto
     // Subscribe a queue
     $scope.subscribe = function () {
         
-        // var headers = {ack: 'client', 'selector': "type = 'Type0' AND sales > 49"};
         var headers = {};
 
-        $stomp.subscribe($scope.model.queue, headers).then(null,null,updateGrid);
+        $stomp.subscribe($scope.model.subdest, headers).then(null,null,updateGrid);
     };
 
     // Unsubscribe a queue
     $scope.unsubscribe = function () {
-        $stomp.unsubscribe($scope.model.queue);
+        $stomp.unsubscribe($scope.model.subdest);
     };
 
     // Send a message
     $scope.send = function () {
-        $stomp.send($scope.model.dest, JSON.parse($scope.model.payload), JSON.parse($scope.model.headers));
+        $stomp.send($scope.model.pubdest, JSON.parse($scope.model.payload), JSON.parse($scope.model.headers));
     };
 
     // notify callback function
@@ -55,12 +54,15 @@ app.controller('stompgridController', ['$scope', '$stomp', function($scope, $sto
     var initialize = function () {
         $scope.model = {}
 
-        $scope.model.url = 'http://localhost:15674/stomp';
-        $scope.model.usr = 'guest';
-        $scope.model.pwd = 'guest';
-        $scope.model.queue = '/topic/dest';
-        $scope.model.dest = '/topic/dest';
-        $scope.model.payload = '{"key":"value"}';
+        // $scope.model.url = 'http://localhost:15674/stomp';
+        $scope.model.url = 'ws://localhost:61623/';
+        // $scope.model.usr = 'guest';
+        $scope.model.usr = 'admin';
+        // $scope.model.pwd = 'guest';
+        $scope.model.pwd = 'password';
+        $scope.model.subdest = '/topic/dest';
+        $scope.model.pubdest = '/topic/dest';
+        $scope.model.payload = '{"name":"Tom", "type":"Type0", "sales":50}';
         $scope.model.headers = '{}';
 
         $scope.model.rowCollection = [];
