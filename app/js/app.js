@@ -19,6 +19,7 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
 		when("/", {redirectTo: '/stompgrid'}).
 		when("/gridpage", {templateUrl: "views/gridpage.html", controller: "gridpageController"}).
 		when("/smarttbl", {templateUrl: "views/smarttbl.html", controller: "smarttblController"}).
-		when("/stompgrid", {templateUrl: "views/stompgrid.html", controller: "stompgridController"});
+		when("/stompgrid", {templateUrl: "views/stompgrid.html", controller: "stompgridController"}).
+		when("/stomptbl", {templateUrl: "views/stomptbl.html", controller: "stomptblController"});
 
 }]);

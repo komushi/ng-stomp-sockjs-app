@@ -1,7 +1,7 @@
 var app = angular.module('ngStompSockjsApp');
 
 
-app.controller('stompgridController', ['$scope', '$stomp', function($scope, $stomp){
+app.controller('stomptblController', ['$scope', '$stomp', function($scope, $stomp){
 
     $scope.connect = function () {
         var connectHeaders = {};
@@ -64,11 +64,31 @@ app.controller('stompgridController', ['$scope', '$stomp', function($scope, $sto
         $scope.model.pwd = 'password';
         $scope.model.subdest = '/topic/dest';
         $scope.model.pubdest = '/topic/dest';
-        $scope.model.payload = '{"name":"Tom", "type":"Type0", "sales":50}';
+        $scope.model.payload = '{"hour":1, "sales":50}';
         $scope.model.headers = '{}';
 
         $scope.model.rowCollection = [];
 
+        var columnDefs = [
+            {headerName: "hour", field: "hour"},
+            {headerName: "sales", field: "sales"}
+        ];
+
+        $scope.gridOptions = {
+            columnDefs: columnDefs,
+            rowData: $scope.model.rowCollection,
+            onGridReady: function(event) {
+
+                event.api.sizeColumnsToFit();
+
+            },
+            getRowStyle: function(params) {
+                console.log(params.data);
+                var level = getLevel(params.data.hour, $scope.model.rowCollection.length)
+                return colorPalette(level);
+            }
+
+        };
 
     };
 

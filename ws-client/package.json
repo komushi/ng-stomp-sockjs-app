@@ -4,18 +4,18 @@
   "version": "1.0.0",
   "description": "angular stomp sockjs app",
   "repository": "http://komushi.github.io/ng-stomp-sockjs-app/",
-  "scripts": {
-    "start": "node ./server/server.js"
-  },
   "dependencies": {
-    "q":"1.1.x",
-    "express": "~4.0.0",
-    "body-parser":"1.10.x"
+    "stompjs":"2.3.*",
+    "q": "1.4.*",
+    "sockjs-client":"1.1.*",
+    "prompt":"1.*",
+    "random-words":"*"
   },
   "scripts": {
-    "start": "node ./server/nodeapp.js"
+    "start": "node ./send-data-over-ws-rabbitmq.js"
   },
   "engines" : { "node" : ">=0.10.3 <0.12" },
   "author": "Lei Xu",
   "license": "ISC"
 }
+
