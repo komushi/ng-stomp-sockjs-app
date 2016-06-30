@@ -3,13 +3,13 @@ var SockJS = require('sockjs-client');
 var randomWords = require('random-words');
 var stompClient;
 var socket;
-var endpoint = 'ws://127.0.0.1:15674/ws';
+var endpoint = 'http://127.0.0.1:8080/stomp';
 
 var stompSuccessCallback = function (frame) {
   console.log('STOMP: Connection successful: ' + frame);
 
-  stompClient.subscribe('/topic/dest', function(greeting){
-    console.log('/topic/dest subscribed');
+  stompClient.subscribe('/topic/ticktock', function(greeting){
+    console.log('/topic/ticktock subscribed');
     console.log(greeting);
   });
 
@@ -25,7 +25,8 @@ var stompFailureCallback = function (error) {
 var stompConnect = function () {
     console.log('STOMP: Attempting connection');
     // recreate the stompClient to use a new WebSocket
-    stompClient = Stomp.overWS(endpoint);
+    socket = new SockJS(endpoint);
+    stompClient = Stomp.over(socket);
     
     stompClient.connect('guest', 'guest', stompSuccessCallback, stompFailureCallback);
 
@@ -44,7 +45,7 @@ var sendMessage = function (){
     rows.push(row);
   }
 
-  stompClient.send('/topic/dest', {}, JSON.stringify(rows));
+  stompClient.send('/topic/ticktock', {}, JSON.stringify(rows));
 };
 
 stompConnect();

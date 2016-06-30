@@ -11,18 +11,18 @@ Quick Start
 git clone https://github.com/komushi/ng-stomp-sockjs-app
 ```
 
-## Build & Start Send-Data
-
-```
-cd ng-stomp-sockjs-app/server
-npm install
-node send-data-over-ws-rabbitmq.js
-```
-
 ## Start RabbitMQ Server
 
 ```
 rabbitmq-server
+```
+
+## Build & Start Send-Data
+
+```
+cd ng-stomp-sockjs-app/ws-client
+npm install
+node send-data-over-ws-rabbitmq.js
 ```
 
 ## Build & Start GUI

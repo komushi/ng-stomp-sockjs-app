@@ -46,11 +46,11 @@ app.controller('stomptblController', ['$scope', '$stomp', function($scope, $stom
     // notify callback function
     var updateGrid = function (res) {
         console.log('res');
-        console.log(res.headers);
+        // console.log(res.headers);
         console.log(res.body);
-        //$scope.model.rowCollection.push(JSON.parse(res.body));
+        $scope.model.rowCollection.push(JSON.parse(res.body));
 
-        $scope.model.rowCollection = JSON.parse(res.body);
+        // $scope.model.rowCollection = JSON.parse(res.body);
     };
 
     var initialize = function () {
@@ -84,7 +84,7 @@ app.controller('stomptblController', ['$scope', '$stomp', function($scope, $stom
             },
             getRowStyle: function(params) {
                 console.log(params.data);
-                var level = getLevel(params.data.hour, $scope.model.rowCollection.length)
+                var level = getLevel(params.data.rank, $scope.model.rowCollection.length)
                 return colorPalette(level);
             }
 
