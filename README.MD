@@ -8,13 +8,25 @@ Quick Start
 ## Download
 
 ```
-git clone https://github.com/komushi/ng-stomp-sockjs-app
+$ git clone https://github.com/komushi/ng-stomp-sockjs-app
 ```
 
 ## Start RabbitMQ Server
 
 ```
-rabbitmq-server
+$ rabbitmq-server
+```
+
+or
+
+```
+$ brew services start rabbitmq-server
+```
+
+## enable web-stomp plugin
+
+```
+$ rabbitmq-plugins enable rabbitmq_web_stomp
 ```
 
 ## Build & Start Send-Data

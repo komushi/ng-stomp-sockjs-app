@@ -127,15 +127,14 @@ app.controller('stompgridController', ['$scope', '$stomp', function($scope, $sto
 
     // notify callback function
     var updateGrid = function (res) {
-        // console.log('res');
-        // console.log(res.headers);
         
-        //$scope.model.rowCollection.push(JSON.parse(res.body));
+        /* for toptenlist test */
+        // console.log(JSON.parse(res.body).payload);
+        // $scope.model.rowCollection = JSON.parse(JSON.parse(res.body).payload).toptenlist;
 
-        console.log(JSON.parse(res.body).payload);
-        
-
-        $scope.model.rowCollection = JSON.parse(JSON.parse(res.body).payload).toptenlist;
+        console.log(JSON.parse(res.body));
+        // $scope.model.rowCollection.push(JSON.parse(res.body));
+        $scope.model.rowCollection = JSON.parse(res.body);
 
         $scope.gridOptions.rowData = $scope.model.rowCollection;
         $scope.gridOptions.api.setRowData($scope.gridOptions.rowData);
@@ -174,8 +173,9 @@ app.controller('stompgridController', ['$scope', '$stomp', function($scope, $sto
                 event.api.sizeColumnsToFit();
             },
             getRowStyle: function(params) {
-                // return null;
                 // console.log(JSON.stringify(params.data));
+                // return null;
+                
                 var level = getLevel(params.data.rank - 1, $scope.model.rowCollection.length)
                 return colorPalette(level);
             }
